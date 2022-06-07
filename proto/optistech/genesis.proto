@@ -1,0 +1,14 @@
+syntax = "proto3";
+package hengmengsroin.optistech.optistech;
+
+import "gogoproto/gogo.proto";
+import "optistech/params.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/hengmengsroin/optistech/x/optistech/types";
+
+// GenesisState defines the optistech module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}
