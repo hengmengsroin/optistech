@@ -115,5 +115,5 @@ RECIPIENT=$(./optistechd keys show recipient -a --keyring-backend test)
 ```
 ### Query the total delegations to `validator`.
 ```
-./optistechd query staking delegations-to $(simd keys show my_validator --bech val -a --keyring-backend test) --chain-id optistech
+./optistechd query staking delegations-to $(./optistechd keys show my_validator --bech val -a --keyring-backend test) --chain-id optistech
 ```
