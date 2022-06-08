@@ -50,3 +50,39 @@ curl https://get.ignite.com/hengmengsroin/optistech@latest! | sudo bash
 - [Ignite CLI docs](https://docs.ignite.com)
 - [Cosmos SDK docs](https://docs.cosmos.network)
 - [Developer Chat](https://discord.gg/ignite)
+
+
+
+# Runing a node
+
+### Initialize the Chain
+```
+./optistechd init validator1 --chian-id optistech
+```
+
+### Adding keys to the keyring
+```
+./optistechd keys add my_validator --keyring-backend test
+
+MY_VALIDATOR_ADDRESS=$(./optistechd keys show my_validator -a --keyring-backend test)
+```
+### Adding Genesis Accounts
+
+```
+./optistechd add-genesis-account $MY_VALIDATOR_ADDRESS 100000000000stake
+```
+
+### Create a gentx.
+```
+./optistechd gentx my_validator 100000000stake --chain-id my-test-chain --keyring-backend test
+```
+
+### Add the gentx to the genesis file.
+```
+./optistechd collect-gentxs
+```
+
+### run localnet
+```
+./optistechd start
+```
