@@ -63,7 +63,8 @@ curl https://get.ignite.com/hengmengsroin/optistech@latest! | sudo bash
 ### Adding keys to the keyring
 ```
 ./optistechd keys add my_validator --keyring-backend test
-
+```
+```
 MY_VALIDATOR_ADDRESS=$(./optistechd keys show my_validator -a --keyring-backend test)
 ```
 ### Adding Genesis Accounts
@@ -103,13 +104,16 @@ RECIPIENT=$(./optistechd keys show recipient -a --keyring-backend test)
 ```
 ```
 ./optistechd tx bank send $MY_VALIDATOR_ADDRESS $RECIPIENT 1000000stake --chain-id optistech --keyring-backend test
-# Check that the recipient account did receive the tokens.
+```
+### Check that the recipient account did receive the tokens.
+```
 ./optistechd query bank balances $RECIPIENT --chain-id optistech
 ```
 
 ```
 ./optistechd tx staking delegate $(./optistechd keys show my_validator --bech val -a --keyring-backend test) 500stake --from recipient --chain-id optistech --keyring-backend test
-
-# Query the total delegations to `validator`.
+```
+### Query the total delegations to `validator`.
+```
 ./optistechd query staking delegations-to $(simd keys show my_validator --bech val -a --keyring-backend test) --chain-id optistech
 ```
