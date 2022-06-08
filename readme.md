@@ -74,7 +74,7 @@ MY_VALIDATOR_ADDRESS=$(./optistechd keys show my_validator -a --keyring-backend 
 
 ### Create a gentx.
 ```
-./optistechd gentx my_validator 100000000stake --chain-id my-test-chain --keyring-backend test
+./optistechd gentx my_validator 100000000stake --chain-id optistech --keyring-backend test
 ```
 
 ### Add the gentx to the genesis file.
