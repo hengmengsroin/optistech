@@ -86,3 +86,26 @@ MY_VALIDATOR_ADDRESS=$(./optistechd keys show my_validator -a --keyring-backend 
 ```
 ./optistechd start
 ```
+# Interacting with the Node
+```
+./optistechd query bank balances <address>
+```
+
+```
+./optistechd keys add recipient --keyring-backend test
+```
+```
+RECIPIENT=$(./optistechd keys show recipient -a --keyring-backend test)
+```
+```
+./optistechd tx bank send $MY_VALIDATOR_ADDRESS $RECIPIENT 1000000stake --chain-id optistech --keyring-backend test
+# Check that the recipient account did receive the tokens.
+./optistechd query bank balances $RECIPIENT --chain-id optistech
+```
+
+```
+./optistechd tx staking delegate $(./optistechd keys show my_validator --bech val -a --keyring-backend test) 500stake --from recipient --chain-id optistech --keyring-backend test
+
+# Query the total delegations to `validator`.
+./optistechd query staking delegations-to $(simd keys show my_validator --bech val -a --keyring-backend test) --chain-id optistech
+```
