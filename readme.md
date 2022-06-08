@@ -112,9 +112,10 @@ RECIPIENT=$(./optistechd keys show recipient -a --keyring-backend test)
 
 ```
 ./optistechd tx staking delegate $(./optistechd keys show my_validator --bech val -a --keyring-backend test) 500stake --from recipient --chain-id optistech --keyring-backend test
-
+```
 
 # Query the total delegations to `validator`.
+```
 ./optistechd query staking delegations-to $(simd keys show my_validator --bech val -a --keyring-backend test) --chain-id optistech
 ```
 
@@ -144,10 +145,4 @@ RECIPIENT=$(./optistechd keys show recipient -a --keyring-backend test)
 ## show delegation set
 ```
 ./optistechd query tendermint-validator-set
-```
-
-
-### Query the total delegations to `validator`.
-```
-./optistechd query staking delegations-to $(./optistechd keys show my_validator --bech val -a --keyring-backend test) --chain-id optistech
 ```
