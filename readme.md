@@ -113,3 +113,31 @@ RECIPIENT=$(./optistechd keys show recipient -a --keyring-backend test)
 # Query the total delegations to `validator`.
 ./optistechd query staking delegations-to $(simd keys show my_validator --bech val -a --keyring-backend test) --chain-id optistech
 ```
+
+# Create a validator 
+```
+./optistechd tx staking create-validator \
+  --amount=1000stake \
+  --pubkey=$(./optistechd tendermint show-validator) \
+  --moniker="mvalidator" \
+  --chain-id=optistech \
+  --commission-rate="0.10" \
+  --commission-max-rate="0.20" \
+  --commission-max-change-rate="0.01" \
+  --min-self-delegation="1" \
+  --gas="auto" \
+  --gas-prices="0.0025stake" \
+  --gas-adjustment=1.15 \
+  --from=my_validator \
+  --keyring-backend=test 
+```
+
+## delegate to validator
+```
+./optistechd tx staking delegate optvaloper19efln8zkeyzufwcxqynlf65etejquehevgtlma 1000000000stake --from opt1lqt986anc7qt3n6ys7mlhvtdulzldqxxe5z932 --chain-id optistech --keyring-backend test
+```
+
+## show delegation set
+```
+./optistechd query tendermint-validator-set
+```
