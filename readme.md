@@ -57,7 +57,7 @@ curl https://get.ignite.com/hengmengsroin/optistech@latest! | sudo bash
 
 ### Initialize the Chain
 ```
-./optistechd init validator1 --chian-id optistech
+./optistechd init validator1 --chain-id optistech
 ```
 
 ### Adding keys to the keyring
