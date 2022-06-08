@@ -86,6 +86,10 @@ MY_VALIDATOR_ADDRESS=$(./optistechd keys show my_validator -a --keyring-backend 
 ```
 ./optistechd start
 ```
+### show node id
+```
+./optistechd tendermint show-node-id
+```
 # Interacting with the Node
 ```
 ./optistechd query bank balances <address>
